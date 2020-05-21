@@ -453,20 +453,25 @@ variable "workers_role_policy_arns_count" {
 variable "block_device_mappings" {
   description = "Specify volumes to attach to the instance besides the volumes specified by the AMI"
 
-  type = list(object({
-    device_name  = string
-    no_device    = bool
-    virtual_name = string
-    ebs = object({
-      delete_on_termination = bool
-      encrypted             = bool
-      iops                  = number
-      kms_key_id            = string
-      snapshot_id           = string
-      volume_size           = number
-      volume_type           = string
-    })
-  }))
+  #  type = list(object({
+  #    device_name  = string
+  #    no_device    = bool
+  #    virtual_name = string
+  #    ebs = object({
+  #      delete_on_termination = bool
+  #      encrypted             = bool
+  #      iops                  = number
+  #      kms_key_id            = string
+  #      snapshot_id           = string
+  #      volume_size           = number
+  #      volume_type           = string
+  #    })
+  #  }))
+
+  # This is commented out to preserve a structure as reference, but specifically to
+  # work around https://github.com/cloudposse/terraform-aws-ec2-autoscale-group/issues/18
+
+  type = list
 
   default = []
 }
