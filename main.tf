@@ -197,6 +197,7 @@ module "autoscale_group" {
   user_data_base64 = base64encode(join("", data.template_file.userdata.*.rendered))
 
   instance_type                           = var.instance_type
+  launch_template_version                 = var.launch_template_version
   subnet_ids                              = var.subnet_ids
   min_size                                = var.min_size
   max_size                                = var.max_size
