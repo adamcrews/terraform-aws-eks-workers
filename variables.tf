@@ -101,6 +101,12 @@ variable "image_id" {
   default     = ""
 }
 
+variable "launch_template_version" {
+  description = "Specifies the launch template version to be used."
+  type        = string
+  default     = "$Latest"
+}
+
 variable "use_custom_image_id" {
   type        = bool
   description = "If set to `true`, will use variable `image_id` for the EKS workers inside autoscaling group"
